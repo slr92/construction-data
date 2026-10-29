@@ -5,7 +5,7 @@ export const site = {
   url: "https://constructiondatabrokers.com",
   tagline: "Construction data licensing",
   description:
-    "Get paid for the project records you've already closed out. We clear the rights, remove identifying details and license your construction data to AI labs.",
+    "Get paid for the job records you already have. We check your contracts, strip out identifying details and license your construction data to AI companies. You approve every sale.",
   // Set up this inbox before launch.
   email: "hello@constructiondatabrokers.com",
   nav: [

@@ -29,7 +29,7 @@ const offering = [
   },
   {
     title: "Packaged to spec",
-    body: "JSON or Parquet for structured records, original PDFs and images with redaction applied, schedules as XER or XML, and IFC models where the rights allow. Schemas and labelling matched to your training or eval pipeline.",
+    body: "JSON or Parquet for structured records, original PDFs and images with redaction applied, schedules as XER or XML, and IFC models where the rights allow. Schemas and labeling matched to your training or eval pipeline.",
   },
   {
     title: "Ready for evals and environments",
@@ -39,15 +39,15 @@ const offering = [
 
 const terms = [
   { label: "Evaluation", body: "De-identified samples under NDA before you commit." },
-  { label: "Non-exclusive", body: "Standard licence, lowest price, fastest to close." },
-  { label: "Exclusive", body: "Sole rights to a dataset for an agreed term or in perpetuity." },
+  { label: "Non-exclusive", body: "Standard license, lowest price, fastest to close." },
+  { label: "Exclusive", body: "Sole rights to a dataset for an agreed term or permanently." },
   { label: "Custom collection", body: "Tell us the trade, region or record type you need and we'll source it." },
 ];
 
 const fields: Field[] = [
   { name: "name", label: "Name", required: true },
   { name: "email", label: "Work email", type: "email", required: true },
-  { name: "organisation", label: "Organisation" },
+  { name: "organization", label: "Organization" },
   {
     name: "looking_for",
     label: "What are you looking for?",

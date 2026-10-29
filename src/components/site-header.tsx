@@ -18,7 +18,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <ButtonLink href="/estimate" size="sm">
-          Estimate your data
+          Get an estimate
         </ButtonLink>
       </div>
     </header>

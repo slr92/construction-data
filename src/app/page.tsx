@@ -9,52 +9,52 @@ const systemGroups = [
   { title: "Estimating", tools: "HCSS HeavyBid, Sage Estimating, ProEst, Accubid, Excel" },
   { title: "Scheduling", tools: "Primavera P6, Microsoft Project" },
   { title: "Field and safety", tools: "HCSS HeavyJob, Raken, SafetyCulture" },
-  { title: "Files and photos", tools: "SharePoint, Egnyte, Box, file servers, PDF archives" },
+  { title: "Files and photos", tools: "SharePoint, Egnyte, Box, your server, scanned PDFs" },
 ];
 
 const records = [
   {
-    title: "Estimates and bid history",
-    body: "Takeoffs, unit costs, bid and no-bid decisions, and how your numbers compared with the final cost.",
+    title: "Estimates and bids",
+    body: "Takeoffs, unit costs, bid/no-bid calls, and how your number compared with the final cost.",
   },
   {
     title: "Schedules",
-    body: "Baseline and updated schedules, with the delays that happened and the reasons behind them.",
+    body: "Baselines and updates, with what slipped and why.",
   },
   {
     title: "RFIs, submittals and change orders",
-    body: "The questions raised in the field, how they were resolved, and what each one cost in time and money.",
+    body: "What came up in the field, how it got resolved, and what it cost in time and money.",
   },
   {
     title: "Daily logs and site photos",
-    body: "Crew counts, weather, deliveries, progress and problems, recorded day by day.",
+    body: "Crews, weather, deliveries, progress and problems, day by day.",
   },
   {
-    title: "Safety and quality records",
-    body: "Inspections, incidents and root causes, punch lists and closeout.",
+    title: "Safety and quality",
+    body: "Inspections, incidents and what caused them, punch lists, closeout.",
   },
   {
-    title: "Job cost and financials",
-    body: "Cost codes, committed against actual, pay applications and retention.",
+    title: "Job cost",
+    body: "Cost codes, committed vs. actual, pay apps and retainage.",
   },
 ];
 
 const valueDrivers = [
   {
-    title: "Records that connect",
-    body: "An estimate on its own is worth little. The same estimate tied to the RFIs, change orders and final cost of the job is worth far more.",
+    title: "Jobs you can follow start to finish",
+    body: "An estimate on its own isn't worth much. The same estimate tied to that job's RFIs, change orders and final cost is worth a lot more.",
   },
   {
     title: "Years of history",
-    body: "Five years of closed projects beats one large job. Buyers want to see the same kinds of problems come up and get solved more than once.",
+    body: "Five years of finished jobs beats one big one. Buyers want to see the same problems come up and get solved more than once.",
   },
   {
     title: "Specialist work",
-    body: "Healthcare, data centres, heavy civil, MEP and other technical trades are thin in what labs hold today, so they command more.",
+    body: "Healthcare, data centers, heavy civil and MEP are hard for buyers to find, so they pay more for them.",
   },
   {
-    title: "Structured systems",
-    body: "Records in Procore or Sage with consistent cost codes are quicker to prepare than folders of scanned PDFs, and buyers pay for that.",
+    title: "Organized records",
+    body: "Clean data in Procore or Sage with consistent cost codes is quicker to prepare than boxes of scanned PDFs. That shows up in the price.",
   },
 ];
 
@@ -62,98 +62,102 @@ const rightsGroups = [
   {
     label: "Yours to sell",
     tone: "text-emerald-400",
-    body: "Estimates, schedules, daily logs, cost reports, your own photos, and the reasoning in your RFIs and change orders.",
+    body: "Estimates, schedules, daily logs, job cost, your own photos, and your side of the RFIs and change orders.",
   },
   {
-    label: "Needs consent",
+    label: "Needs permission",
     tone: "text-amber-300",
-    body: "Records covered by owner confidentiality clauses, or that include third-party documents. We'll help you ask.",
+    body: "Anything covered by an owner's confidentiality clause, or with someone else's documents in it. We'll help you ask.",
   },
   {
-    label: "Excluded",
+    label: "Stays put",
     tone: "text-red-400",
-    body: "Architects' drawings and specifications, controlled government work and security-sensitive facilities. These never leave your systems.",
+    body: "Architects' drawings and specs, government work with security rules, and sensitive buildings like data centers and prisons. These never leave.",
   },
 ];
 
 const steps = [
   {
-    title: "Describe it",
-    body: "Tell us which systems you use, how many years of projects you have and what kind of work you do. You get a value range. You don't send any files.",
+    title: "Tell us what you have",
+    body: "Answer a few questions about your company and your systems. You'll get a price range. No files needed.",
   },
   {
-    title: "Rights review",
-    body: "We read your standard contracts and tell you what you can sell before you share anything.",
+    title: "We check your contracts",
+    body: "Send us your standard owner contracts and subcontracts. We'll tell you what you're allowed to sell before anything else happens.",
   },
   {
-    title: "Offers",
-    body: "We take a description of your records to AI labs and bring offers back. You approve the buyer, the records, the use and the price, or turn it down.",
+    title: "We find a buyer",
+    body: "We take a description of your records to AI companies and bring back offers. Take one, or turn them all down.",
   },
   {
-    title: "Preparation",
-    body: "We pull only the approved records and remove people, clients, addresses, title blocks, stamps, photo GPS data and faces. You see what we removed before anything ships.",
+    title: "We do the prep",
+    body: "We pull only the records in the deal and strip out names, clients, addresses, stamps and faces. You see what we took out before anything goes.",
   },
   {
-    title: "Payment",
-    body: "The buyer gets the clean copy, you get paid, and we delete your originals. Our fee comes out of the sale. If no deal closes, you pay nothing.",
+    title: "You get paid",
+    body: "The buyer pays, you get your share, and we delete our copy. If there's no deal, you owe nothing.",
   },
 ];
 
 const safeguards = [
   {
     title: "Nothing moves until you sign",
-    body: "You describe your records, you don't send them. Files only move once you've approved a specific buyer and deal.",
+    body: "To start, you just describe your records. Files only move after you've approved a buyer and a price.",
   },
   {
     title: "Read-only access",
-    body: "We can't change or delete anything in Procore, your ERP or your file server, and access ends with the project.",
+    body: "We can't change or delete anything in Procore, your accounting system or your server. Access ends when the deal does.",
   },
   {
     title: "Checked by people",
-    body: "Automated detection, human review and a re-identification test on every dataset. If it can't be made clean, it isn't sold.",
+    body: "Software scans everything, then our team checks it by hand. If we can't get it clean, we don't sell it.",
   },
   {
     title: "Never to competitors",
-    body: "We don't license your records to other contractors or bid-intelligence firms, and a buyer only learns who you are if you say so.",
+    body: "We don't sell to other contractors or bid-data companies. Buyers only learn your name if you want them to.",
   },
 ];
 
 const faqs = [
   {
-    q: "Will clients or competitors know it's our data?",
-    a: "Buyers receive records with client names, addresses, people and project identifiers removed, and details that could pinpoint a building are generalised. Listings describe your company in general terms, such as \"Midwest commercial GC, $200M annual volume\", and you approve the wording.",
+    q: "Will my clients or competitors find out?",
+    a: "No. We strip out client names, addresses, people and job names, and blur details that could point to a specific building. Listings describe you in general terms, like \"Midwest commercial GC, $200 million a year\", and you approve the wording.",
   },
   {
-    q: "Will the buyer know the data came from us?",
-    a: "Only if you choose that in your deal schedule. Otherwise the buyer licenses the records without learning who supplied them, and we never name you publicly without your written consent.",
+    q: "Will the buyer know it's us?",
+    a: "Only if you say so. Otherwise they never learn who supplied it, and we never name you publicly without your written OK.",
   },
   {
-    q: "Do we still own the data after a sale?",
-    a: "Yes. You grant the buyer a licence to use it. Under a non-exclusive licence you can sell the same records again. Under an exclusive licence you agree not to, which is why exclusive deals pay more.",
+    q: "What about my employees?",
+    a: "Names, phone numbers, emails, signatures and faces come out before anything is shared. We don't touch payroll or HR files.",
   },
   {
-    q: "What about our employees' personal information?",
-    a: "Names, phone numbers, email addresses, signatures and faces are removed before anything is shared. We don't sell HR or payroll records.",
+    q: "How much of my team's time will this take?",
+    a: "Not much. Someone who knows your systems answers our questions and sets up read-only access. We do the rest and keep you updated.",
   },
   {
-    q: "Is my company the right size?",
-    a: "It works best for general and specialty contractors with several years of closed projects in a project management or accounting system. History matters more than headcount.",
+    q: "Are we big enough?",
+    a: "If you have several years of finished jobs in a project management or accounting system, probably. Years of history matter more than headcount.",
   },
   {
     q: "How long does it take?",
-    a: "The estimate takes a few minutes. Expect the rights review and preparation to take a few weeks, depending on how your records are stored. When a sale closes depends on buyer demand for your type of work.",
+    a: "The estimate takes a few minutes. Expect a few weeks for us to check contracts and prepare the data. How fast it sells depends on what buyers are looking for at the time.",
   },
   {
     q: "What does it cost?",
-    a: "Nothing up front, and nothing at all if no deal closes. Our fee comes out of the buyer's payment, and your share is set out in each deal schedule before you sign.",
+    a: "Nothing up front, and nothing at all if there's no deal. Our fee comes out of the buyer's payment, and your share is written into each deal before you sign.",
   },
   {
-    q: "Who buys it?",
-    a: "AI research labs and teams building models for construction. Never other contractors or bid-intelligence firms, and you approve every buyer by name.",
+    q: "Do we still own the records?",
+    a: "Yes. You're licensing them, not selling them outright. If a deal isn't exclusive, you can license the same records again. Exclusive deals pay more because you can't.",
   },
   {
-    q: "Can our lawyer review the agreement first?",
-    a: "Yes, and we recommend it. Ask us for the Data Supply Agreement. Nothing is shared until it's signed and you've approved a specific deal.",
+    q: "Who's buying?",
+    a: "AI companies building tools that estimate, schedule and manage construction work. Never other contractors or bid-data firms, and you approve every buyer by name.",
+  },
+  {
+    q: "Can my lawyer see the agreement?",
+    a: "Yes, and we'd encourage it. Ask us for a copy. Nothing happens until it's signed and you've approved a specific deal.",
   },
 ];
 
@@ -166,20 +170,22 @@ export default function Home() {
           <div>
             <Eyebrow>{site.tagline}</Eyebrow>
             <h1 className="mt-5 text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-[3.4rem] lg:leading-[1.05]">
-              Get paid for project records you&rsquo;ve already closed out.
+              Get paid for the job records you already have.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-              AI labs are licensing real construction records to teach models how projects get estimated, scheduled
-              and built. We check what you have the right to sell, remove anything that identifies your clients or
-              your people, and negotiate the licence. Nothing leaves your systems until a buyer has agreed to pay.
+              AI companies are paying contractors for their old project records: estimates, schedules, RFIs, change
+              orders, daily logs. We handle the whole thing. You answer some questions, approve the deal and get paid.
+            </p>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
+              Nothing leaves your systems until you&rsquo;ve signed off on a buyer and a price.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/estimate">Estimate what your data is worth</ButtonLink>
+              <ButtonLink href="/estimate">See what your records are worth</ButtonLink>
               <ButtonLink href="#how" variant="secondary">
-                See how it works
+                How it works
               </ButtonLink>
             </div>
-            <p className="mt-5 text-sm text-muted">Free estimate. No upfront fees. You approve every sale.</p>
+            <p className="mt-5 text-base text-muted">Free. No upfront cost. You approve every sale.</p>
           </div>
           <RecordChain />
         </div>
@@ -189,17 +195,17 @@ export default function Home() {
       <section className="border-b border-line">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16">
           <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-            Public data teaches a model what a building is. Your records teach it how one gets built.
+            AI can read a spec book. It has no idea how a job actually runs.
           </h2>
           <div className="space-y-5 text-lg leading-relaxed text-muted">
             <p>
-              Codes, textbooks and product sheets are already on the internet, and AI models have read them. What
-              they&rsquo;ve never seen is a real job running: the estimate that came in light, the RFI that held up
-              the steel, the change order that fixed it and what it cost.
+              The internet is full of building codes, textbooks and product data, and AI has already read all of it.
+              What it&rsquo;s never seen is a real job: the estimate that came in light, the RFI that held up the
+              steel, the change order that fixed it and what it cost.
             </p>
             <p>
-              That&rsquo;s why AI still can&rsquo;t do most of the work an estimator, scheduler or project manager
-              does, and why labs pay for private records that show it. Scraped public data can&rsquo;t fill that gap.
+              That&rsquo;s what AI companies are short of. It&rsquo;s sitting in your Procore account and your
+              accounting system, and they&rsquo;ll pay for it.
             </p>
           </div>
         </div>
@@ -210,8 +216,8 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
           <SectionHeading
             eyebrow="What sells"
-            title="Labs want the working record, not the polished deliverable."
-            intro="Six kinds of record carry most of the value. The more of them you hold for the same jobs, the more your archive is worth."
+            title="What buyers pay for."
+            intro="The day-to-day records of how your jobs ran. The more of these you have for the same jobs, the more they're worth."
           />
           <div className="mt-14 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
             {records.map((r) => (
@@ -224,17 +230,17 @@ export default function Home() {
 
           <div className="mt-20 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <h3 className="text-2xl font-semibold tracking-tight">Where it lives</h3>
+              <h3 className="text-2xl font-semibold tracking-tight">Works with the systems you already use</h3>
               <p className="mt-4 leading-relaxed text-muted">
-                We connect read-only to the systems you already use, or work from exports. We can&rsquo;t change or
-                delete anything, and you choose which projects and folders are in scope.
+                We connect read-only, so we can&rsquo;t change or delete anything. Or you send us exports. Either
+                way, you choose which jobs are included.
               </p>
             </div>
             <dl className="grid gap-px self-start border border-line bg-line sm:grid-cols-2">
               {systemGroups.map((g) => (
                 <div key={g.title} className="bg-card p-5">
                   <dt className="font-mono text-xs uppercase tracking-[0.12em] text-accent">{g.title}</dt>
-                  <dd className="mt-2 text-[15px] leading-relaxed text-ink-soft">{g.tools}</dd>
+                  <dd className="mt-2 leading-relaxed text-ink-soft">{g.tools}</dd>
                 </div>
               ))}
             </dl>
@@ -246,9 +252,9 @@ export default function Home() {
       <section className="border-y border-line bg-card">
         <div className="mx-auto grid max-w-6xl gap-14 px-4 py-24 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionHeading
-            eyebrow="Pricing your data"
-            title="What makes your records worth more."
-            intro="Two contractors with the same revenue can get very different offers. These are the things that move the number."
+            eyebrow="Pricing"
+            title="What gets you a better price."
+            intro="Two contractors the same size can get very different offers. This is what makes the difference."
           />
           <dl className="grid gap-10 sm:grid-cols-2">
             {valueDrivers.map((v, i) => (
@@ -270,11 +276,11 @@ export default function Home() {
           <SectionHeading
             inverted
             eyebrow="Rights first"
-            title="A lot of what's on your server isn't yours to sell."
-            intro="Under AIA A201 and B101, drawings and specifications belong to the architect as instruments of service. Owner contracts often add confidentiality terms, and shop drawings can carry a supplier's IP. A broker that skips this step leaves the risk with you."
+            title="Some of what's on your server isn't yours to sell."
+            intro="The AIA contracts most contractors sign say the drawings and specs belong to the architect. Owner contracts often have confidentiality clauses. Shop drawings can belong to the supplier."
           />
-          <p className="mt-10 max-w-2xl text-paper/80">
-            Before anything is listed, we review your contract set and sort every record into one of three groups.
+          <p className="mt-6 max-w-2xl text-lg text-paper/80">
+            If a broker skips this, you carry the risk. We check first and sort everything into three piles.
           </p>
           <div className="mt-8 grid gap-px border border-paper/10 bg-paper/10 md:grid-cols-3">
             {rightsGroups.map((g) => (
@@ -284,8 +290,8 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-sm text-paper/50">
-            This is a commercial review, not legal advice. We&rsquo;ll tell you when something needs your lawyer.
+          <p className="mt-6 text-base text-paper/55">
+            We&rsquo;re not your lawyer. If something needs one, we&rsquo;ll tell you.
           </p>
         </div>
       </section>
@@ -293,29 +299,29 @@ export default function Home() {
       {/* How it works */}
       <section id="how" className="scroll-mt-16">
         <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-          <SectionHeading
-            eyebrow="How it works"
-            title="From estimate to payment in five steps."
-          />
+          <SectionHeading eyebrow="How it works" title="Five steps. Most of the work is ours." />
           <ol className="mt-14 grid gap-px border border-line bg-line md:grid-cols-5">
             {steps.map((s, i) => (
               <li key={s.title} className="bg-card p-6">
                 <span className="font-mono text-xs text-accent">Step {i + 1}</span>
                 <h3 className="mt-3 font-semibold">{s.title}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-muted">{s.body}</p>
+                <p className="mt-3 leading-relaxed text-muted">{s.body}</p>
               </li>
             ))}
           </ol>
+          <div className="mt-8 border-l-2 border-accent pl-5">
+            <p className="text-lg">
+              <span className="font-semibold">Your part:</span> answer some questions, send us your standard
+              contracts, give us read-only access and sign. We do the rest.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Safeguards */}
       <section className="border-y border-line bg-card">
         <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-          <SectionHeading
-            eyebrow="Handling your data"
-            title="You stay in control until the money is in your account."
-          />
+          <SectionHeading eyebrow="Your data" title="You're in control until the money's in your account." />
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {safeguards.map((s) => (
               <div key={s.title} className="border-t-2 border-ink pt-5">
@@ -326,7 +332,7 @@ export default function Home() {
           </div>
           <div className="mt-12">
             <ButtonLink href="/security" variant="secondary">
-              Read exactly how we handle your data
+              How we handle your data, in full
             </ButtonLink>
           </div>
         </div>
@@ -356,9 +362,10 @@ export default function Home() {
       <section className="border-t border-line bg-card">
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-14 sm:px-6 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
-            <h2 className="text-xl font-semibold">Know a contractor sitting on years of job files?</h2>
+            <h2 className="text-xl font-semibold">Know a contractor with years of job files?</h2>
             <p className="mt-2 text-muted">
-              Accountants, surety brokers and software consultants can introduce clients and share in every deal.
+              Accountants, surety brokers and software consultants can introduce their clients and share in every
+              deal.
             </p>
           </div>
           <ButtonLink href="/partners" variant="secondary">
@@ -372,12 +379,12 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-8 px-4 py-20 sm:px-6 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="text-3xl font-semibold tracking-tight text-paper text-balance">
-              Find out what your project history is worth.
+              Find out what your job records are worth.
             </h2>
-            <p className="mt-3 text-paper/65">A few questions, a value range, no commitment.</p>
+            <p className="mt-3 text-lg text-paper/65">A few questions, a price range, no commitment.</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/estimate">Start the estimate</ButtonLink>
+            <ButtonLink href="/estimate">Get an estimate</ButtonLink>
             <ButtonLink href={`mailto:${site.email}`} variant="inverted">
               Talk to us
             </ButtonLink>

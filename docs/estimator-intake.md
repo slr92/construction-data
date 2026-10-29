@@ -9,7 +9,7 @@ Step 1 covers who you are. Step 2 covers the company and its data:
 - Type of supply: company internals, dataset, or RL environment.
 - Contact: name, email, phone, role. The form says if someone referred you.
 - Company: name, website, what it does, employees, contractors, number of email inboxes.
-- Headline numbers: total storage (for example 40 TB), years of records, where the data lives, and how soon it's ready (now / 1–2 weeks / a month / longer).
+- Headline numbers: total storage (for example 40 TB), years of records, where the data lives, and how soon it's ready (now / 1 to 2 weeks / a month / longer).
 - Systems: one card per tool, at least two.
 - Free text: "What would we find in your files?"
 - Attestation: "I can speak for this company's data."

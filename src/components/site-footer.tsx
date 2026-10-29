@@ -8,8 +8,8 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-14 sm:px-6 md:flex-row md:justify-between">
         <div className="max-w-sm">
           <Logo inverted />
-          <p className="mt-4 text-sm leading-relaxed">
-            We license construction records to AI labs on behalf of the contractors who created them.
+          <p className="mt-4 text-base leading-relaxed">
+            We help contractors get paid for their old job records by licensing them to AI companies.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-x-14 gap-y-3 text-sm">

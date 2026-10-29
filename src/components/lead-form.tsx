@@ -128,7 +128,7 @@ export function LeadForm({ kind, fields, submitLabel, footnote, success, inverte
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex h-12 items-center justify-center bg-accent px-6 text-[15px] font-medium text-white transition-colors hover:bg-accent-dark disabled:opacity-60"
+          className="inline-flex h-12 items-center justify-center bg-accent px-6 text-base font-medium text-white transition-colors hover:bg-accent-dark disabled:opacity-60"
         >
           {status === "sending" ? "Sending…" : submitLabel}
         </button>

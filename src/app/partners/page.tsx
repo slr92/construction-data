@@ -5,40 +5,40 @@ import { Eyebrow, SectionHeading } from "@/components/section";
 export const metadata: Metadata = {
   title: "Partners",
   description:
-    "Construction accountants, surety brokers, software consultants and advisors: introduce contractors with years of project records and share in every deal.",
+    "Accountants, surety brokers, software consultants and advisors: introduce contractors with years of job records and share in every deal.",
 };
 
 const who = [
   {
     title: "Construction CPAs and controllers",
-    body: "You know which clients have ten years of clean job cost in Sage or Viewpoint, and you have the owner's ear.",
+    body: "You know which clients have ten years of clean job cost in Sage or Viewpoint, and the owner listens to you.",
   },
   {
     title: "Surety and insurance brokers",
-    body: "You see contractors' financials and project histories every renewal, and they already trust you with sensitive information.",
+    body: "You see their financials and job history at every renewal. They already trust you with sensitive information.",
   },
   {
     title: "Procore and ERP consultants",
-    body: "You set up the systems the records live in, so you know how complete and well-structured they are.",
+    body: "You set up the systems the records live in. You know which ones are complete and well organized.",
   },
   {
-    title: "M&A advisors and association leaders",
-    body: "Owners preparing to sell or retire want to know what every asset is worth, and their project archive is one most have never priced.",
+    title: "M&A advisors and associations",
+    body: "Owners getting ready to sell or retire want to know what everything's worth. Most have never priced their job archive.",
   },
 ];
 
 const split = [
   {
-    title: "You bring the relationship",
-    body: "Make the introduction and stay as involved as you like. Most partners join the first call and leave the rest to us.",
+    title: "You introduce them",
+    body: "Join the first call if you like, then leave it to us.",
   },
   {
-    title: "We do the work",
-    body: "Rights review, buyer introductions, de-identification, contracts and delivery. Your client deals with one team from first call to payment.",
+    title: "We handle it",
+    body: "Contract check, buyers, data prep, paperwork and delivery. Your client deals with one team from start to finish.",
   },
   {
-    title: "You share in the deal",
-    body: "We split our fee with you on every deal you introduce, set out in writing before you make the introduction. It comes out of our share, never your client's.",
+    title: "You get paid",
+    body: "We split our fee with you on every deal you bring in. It's agreed in writing before you make the introduction, and it comes out of our share, never your client's.",
   },
 ];
 
@@ -72,7 +72,7 @@ const fields: Field[] = [
     label: "Who are they, and how do you know them?",
     type: "textarea",
     required: true,
-    hint: "Trades, typical size, region. No company names needed yet.",
+    hint: "Trades, size, region. No company names needed yet.",
   },
 ];
 
@@ -83,12 +83,14 @@ export default function PartnersPage() {
         <div className="mx-auto max-w-6xl px-4 pt-16 pb-20 sm:px-6 lg:pt-24">
           <Eyebrow>Partners</Eyebrow>
           <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-            You know which contractors are sitting on twenty years of job files.
+            Your clients have years of job files. Most don&rsquo;t know they&rsquo;re worth anything.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-            Most owners have no idea their project archive has a price, and they won&rsquo;t hear it from a stranger.
-            They&rsquo;ll hear it from their accountant, their surety broker or the consultant who set up their
-            systems. If that&rsquo;s you, introduce them and share in every deal that closes.
+            They won&rsquo;t believe it from a stranger. They will from their accountant, their surety broker or the
+            person who set up their systems.
+          </p>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
+            If that&rsquo;s you, introduce them and share in every deal that closes.
           </p>
         </div>
       </section>
@@ -109,7 +111,7 @@ export default function PartnersPage() {
 
       <section className="border-y border-line bg-card">
         <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-          <SectionHeading eyebrow="How it works" title="Your relationships, our infrastructure." />
+          <SectionHeading eyebrow="How it works" title="You make the introduction. We do the rest." />
           <div className="mt-14 grid gap-10 md:grid-cols-3">
             {split.map((s) => (
               <div key={s.title} className="border-t-2 border-ink pt-5">
@@ -126,7 +128,7 @@ export default function PartnersPage() {
           <SectionHeading
             inverted
             eyebrow="Apply"
-            title="Membership is by application."
+            title="Apply to partner with us."
             intro="We read every application and reply by email."
           />
           <LeadForm
@@ -136,7 +138,7 @@ export default function PartnersPage() {
             submitLabel="Apply"
             success={{
               title: "Thanks. We'll be in touch.",
-              body: "We'll read your application and reply by email with next steps and the partner agreement.",
+              body: "We'll reply by email with next steps and the partner agreement.",
             }}
           />
         </div>

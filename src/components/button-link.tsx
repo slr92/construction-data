@@ -15,7 +15,7 @@ const variants = {
 
 const sizes = {
   sm: "h-9 px-4 text-sm",
-  md: "h-12 px-6 text-[15px]",
+  md: "h-12 px-6 text-base",
 };
 
 export function ButtonLink({ href, children, variant = "primary", size = "md" }: Props) {
