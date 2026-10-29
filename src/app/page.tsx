@@ -3,7 +3,14 @@ import { RecordChain } from "@/components/record-chain";
 import { Eyebrow, SectionHeading } from "@/components/section";
 import { site } from "@/lib/site";
 
-const systems = ["Procore", "Autodesk Construction Cloud", "Sage 300 CRE", "Viewpoint", "HCSS", "Excel and PDF archives"];
+const systemGroups = [
+  { title: "Project management", tools: "Procore, Autodesk Construction Cloud, Fieldwire, Trimble Viewpoint Team" },
+  { title: "Accounting and job cost", tools: "Sage 300 CRE, Sage Intacct, Vista, Spectrum, Foundation, CMiC" },
+  { title: "Estimating", tools: "HCSS HeavyBid, Sage Estimating, ProEst, Accubid, Excel" },
+  { title: "Scheduling", tools: "Primavera P6, Microsoft Project" },
+  { title: "Field and safety", tools: "HCSS HeavyJob, Raken, SafetyCulture" },
+  { title: "Files and photos", tools: "SharePoint, Egnyte, Box, file servers, PDF archives" },
+];
 
 const records = [
   {
@@ -71,50 +78,54 @@ const rightsGroups = [
 
 const steps = [
   {
-    title: "Estimate",
-    body: "Answer a few questions about your company, your systems and your project history. You get a value range in minutes.",
+    title: "Describe it",
+    body: "Tell us which systems you use, how many years of projects you have and what kind of work you do. You get a value range. You don't send any files.",
   },
   {
     title: "Rights review",
-    body: "We read your standard contracts and tell you what you can sell before you share a single file.",
+    body: "We read your standard contracts and tell you what you can sell before you share anything.",
+  },
+  {
+    title: "Offers",
+    body: "We take a description of your records to AI labs and bring offers back. You approve the buyer, the records, the use and the price, or turn it down.",
   },
   {
     title: "Preparation",
-    body: "We pull the cleared records and remove client names, addresses, title blocks, professional stamps, photo location data, faces and anything else that identifies a person or a project.",
+    body: "We pull only the approved records and remove people, clients, addresses, title blocks, stamps, photo GPS data and faces. You see what we removed before anything ships.",
   },
   {
-    title: "Listing",
-    body: "Buyers see a description and redacted samples. You read and approve the listing before it goes out.",
-  },
-  {
-    title: "Sale",
-    body: "You sign the licence, the buyer pays, and you get paid. We take an agreed share of the sale and nothing before it.",
+    title: "Payment",
+    body: "The buyer gets the clean copy, you get paid, and we delete your originals. Our fee comes out of the sale. If no deal closes, you pay nothing.",
   },
 ];
 
 const safeguards = [
   {
-    title: "Nothing moves until there's a buyer",
-    body: "Samples come from a small extract. The full dataset transfers only after a licence is signed.",
+    title: "Nothing moves until you sign",
+    body: "You describe your records, you don't send them. Files only move once you've approved a specific buyer and deal.",
   },
   {
-    title: "Kept separate",
-    body: "Each seller's records sit in their own isolated storage and are never pooled with another company's.",
+    title: "Read-only access",
+    body: "We can't change or delete anything in Procore, your ERP or your file server, and access ends with the project.",
   },
   {
-    title: "Deleted after delivery",
-    body: "Once the buyer has the data, we delete our working copy.",
+    title: "Checked by people",
+    body: "Automated detection, human review and a re-identification test on every dataset. If it can't be made clean, it isn't sold.",
   },
   {
-    title: "Your terms",
-    body: "Exclusive or non-exclusive, one-off fee or recurring. You see every offer and can turn any of them down.",
+    title: "Never to competitors",
+    body: "We don't license your records to other contractors or bid-intelligence firms, and a buyer only learns who you are if you say so.",
   },
 ];
 
 const faqs = [
   {
     q: "Will clients or competitors know it's our data?",
-    a: "Buyers receive records with client names, addresses, people and project identifiers removed. Listings describe your company in general terms, such as \"Midwest commercial GC, $200M annual volume\", and you approve the wording.",
+    a: "Buyers receive records with client names, addresses, people and project identifiers removed, and details that could pinpoint a building are generalised. Listings describe your company in general terms, such as \"Midwest commercial GC, $200M annual volume\", and you approve the wording.",
+  },
+  {
+    q: "Will the buyer know the data came from us?",
+    a: "Only if you choose that in your deal schedule. Otherwise the buyer licenses the records without learning who supplied them, and we never name you publicly without your written consent.",
   },
   {
     q: "Do we still own the data after a sale?",
@@ -134,11 +145,15 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "Nothing up front. We earn a share of each sale, agreed in writing before we start.",
+    a: "Nothing up front, and nothing at all if no deal closes. Our fee comes out of the buyer's payment, and your share is set out in each deal schedule before you sign.",
   },
   {
     q: "Who buys it?",
-    a: "AI research labs and companies building software for construction. You can exclude any buyer by name.",
+    a: "AI research labs and teams building models for construction. Never other contractors or bid-intelligence firms, and you approve every buyer by name.",
+  },
+  {
+    q: "Can our lawyer review the agreement first?",
+    a: "Yes, and we recommend it. Ask us for the Data Supply Agreement. Nothing is shared until it's signed and you've approved a specific deal.",
   },
 ];
 
@@ -170,15 +185,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Systems */}
+      {/* Positioning */}
       <section className="border-b border-line">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:px-6 md:flex-row md:items-center md:gap-10">
-          <p className="shrink-0 text-sm text-muted">We work from records kept in</p>
-          <ul className="flex flex-wrap gap-x-8 gap-y-2 font-mono text-sm text-ink-soft">
-            {systems.map((s) => (
-              <li key={s}>{s}</li>
-            ))}
-          </ul>
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16">
+          <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+            Public data teaches a model what a building is. Your records teach it how one gets built.
+          </h2>
+          <div className="space-y-5 text-lg leading-relaxed text-muted">
+            <p>
+              Codes, textbooks and product sheets are already on the internet, and AI models have read them. What
+              they&rsquo;ve never seen is a real job running: the estimate that came in light, the RFI that held up
+              the steel, the change order that fixed it and what it cost.
+            </p>
+            <p>
+              That&rsquo;s why AI still can&rsquo;t do most of the work an estimator, scheduler or project manager
+              does, and why labs pay for private records that show it. Scraped public data can&rsquo;t fill that gap.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -188,7 +211,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="What sells"
             title="Labs want the working record, not the polished deliverable."
-            intro="Models already know what a finished building looks like. What they lack is the trail of decisions, problems and costs that got it built. That trail is sitting in your archive."
+            intro="Six kinds of record carry most of the value. The more of them you hold for the same jobs, the more your archive is worth."
           />
           <div className="mt-14 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
             {records.map((r) => (
@@ -197,6 +220,24 @@ export default function Home() {
                 <p className="mt-3 leading-relaxed text-muted">{r.body}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-20 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <h3 className="text-2xl font-semibold tracking-tight">Where it lives</h3>
+              <p className="mt-4 leading-relaxed text-muted">
+                We connect read-only to the systems you already use, or work from exports. We can&rsquo;t change or
+                delete anything, and you choose which projects and folders are in scope.
+              </p>
+            </div>
+            <dl className="grid gap-px self-start border border-line bg-line sm:grid-cols-2">
+              {systemGroups.map((g) => (
+                <div key={g.title} className="bg-card p-5">
+                  <dt className="font-mono text-xs uppercase tracking-[0.12em] text-accent">{g.title}</dt>
+                  <dd className="mt-2 text-[15px] leading-relaxed text-ink-soft">{g.tools}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
@@ -283,6 +324,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className="mt-12">
+            <ButtonLink href="/security" variant="secondary">
+              Read exactly how we handle your data
+            </ButtonLink>
+          </div>
         </div>
       </section>
 
@@ -303,6 +349,21 @@ export default function Home() {
               </details>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="border-t border-line bg-card">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-14 sm:px-6 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="text-xl font-semibold">Know a contractor sitting on years of job files?</h2>
+            <p className="mt-2 text-muted">
+              Accountants, surety brokers and software consultants can introduce clients and share in every deal.
+            </p>
+          </div>
+          <ButtonLink href="/partners" variant="secondary">
+            Partner with us
+          </ButtonLink>
         </div>
       </section>
 

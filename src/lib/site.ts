@@ -10,8 +10,17 @@ export const site = {
   email: "hello@constructiondatabrokers.com",
   nav: [
     { label: "How it works", href: "/#how" },
-    { label: "What sells", href: "/#records" },
-    { label: "Rights", href: "/#rights" },
+    { label: "Security", href: "/security" },
+    { label: "Partners", href: "/partners" },
     { label: "For AI labs", href: "/buyers" },
   ],
+} as const;
+
+// Operational promises quoted in the copy. Each must match the signed
+// Data Supply Agreement before launch.
+export const commitments = {
+  replyBusinessDays: 1,
+  objectionBusinessDays: 5,
+  deletionDays: 30,
+  breachNoticeHours: 48,
 } as const;
