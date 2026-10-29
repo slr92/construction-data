@@ -50,7 +50,7 @@ const valueDrivers = [
   },
   {
     title: "Specialist work",
-    body: "Healthcare, data centres, civils and M&E are hard for buyers to find, so they pay more for them.",
+    body: "Healthcare, labs, civils and M&E are hard for buyers to find, so they pay more for them.",
   },
   {
     title: "Organised records",

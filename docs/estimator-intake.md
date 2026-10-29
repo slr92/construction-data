@@ -1,8 +1,46 @@
-# Estimator intake: construction version
+# Estimator: what's built and what's left
 
-Notes for building `/estimate`. They adapt the structure of Grepped's two-step intake form (`/details`) for contractors.
+The enquiry flow at `/estimate` is built. It adapts Grepped's `/form` for UK contractors. The pricing model is yours to write.
 
-## What Grepped's form does
+## Where things live
+
+| File | What it does |
+| --- | --- |
+| `src/lib/enquiry.ts` | Every question, option and branch. Edit wording here. |
+| `src/components/enquiry-form.tsx` | The form: one question per screen, autosave in the browser, back button, contact step, result screen. |
+| `src/lib/estimate.ts` | **Your pricing model.** `estimateValue(answers)` runs on the server only. Return `{ low, high, fit, drivers }` in GBP, or `null` to tell people their estimate will be emailed. Set `showsInstantEstimate = true` once it returns numbers. |
+| `src/app/api/lead/route.ts` | Saves the enquiry (contact details, answers, estimate) to Supabase `leads` with `kind = 'estimate_enquiry'`. |
+
+## Answer keys passed to `estimateValue`
+
+| Key | Type | Values |
+| --- | --- | --- |
+| `role` | string | Owner or MD, operations director, finance director, IT/data lead, or "I'm introducing a contractor" |
+| `business` | string | Main contractor, specialist subcontractor, civils, M&E, housebuilder, fit-out, other |
+| `trade` | string | Only when `business` is specialist subcontractor |
+| `years` | string | "20 years or more" down to "Under 2 years" |
+| `team` | string | "Under 10" to "1,000 or more" |
+| `jobsPerYear` | string | "Under 10" to "250 or more", or "Not sure" |
+| `turnover` | string | "Under £5m" to "Over £500m", or "Prefer not to say" |
+| `sectors` | string[] | Commercial, residential, healthcare, education, industrial, data centres, civils, public sector, retail/leisure, refurb |
+| `systems` | string[] | System types ticked |
+| `platforms` | string[] | "System: Tool", e.g. "Accounts and cost: COINS" |
+| `ownership` | string | "Yes, they're ours", "Most likely", "Some of them", "Not sure yet" |
+| `stage`, `goal` | string | Readiness and what they want from it |
+
+Answers from questions no longer on the path (for example `trade` after switching away from specialist subcontractor) are removed before they reach you.
+
+## Changes from Grepped's form
+
+- Industry list replaced with contractor types, with a trade question for specialist subcontractors (like their software branch).
+- Customers and revenue replaced with jobs finished per year and turnover in £.
+- Their language question (Q6) replaced with sector mix. UK records are in English, and sector drives price.
+- System types and tools are UK construction systems. The tools question only shows groups for the system types ticked.
+- Referrer path rewords questions ("their systems") and asks for the referrer's firm. The result promises not to contact the contractor until the referrer says so.
+- "Not sure" on ownership gets a reassurance note on the result screen.
+- No step 2 (`/details`) yet. The result screen sets out next steps instead.
+
+## Notes from Grepped's form
 
 Step 1 covers who you are. Step 2 covers the company and its data:
 

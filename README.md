@@ -22,19 +22,19 @@ npm run lint     # type check
 | `src/lib/site.ts` | Name, domain, contact email, nav. Change brand details here. |
 | `src/app/page.tsx` | Home page. All copy sits in arrays at the top of the file. |
 | `src/app/buyers/page.tsx` | Page for AI labs and other buyers. |
-| `src/app/estimate/page.tsx` | Placeholder for the estimator. Every "Estimate" CTA points to `/estimate`, so the estimator replaces this page and nothing else needs to change. See `docs/estimator-intake.md`. |
+| `src/app/estimate/page.tsx` | Enquiry flow. Questions in `src/lib/enquiry.ts`, form in `src/components/enquiry-form.tsx`, pricing model in `src/lib/estimate.ts` (still to write). See `docs/estimator-intake.md`. |
 | `src/app/security/page.tsx` | How we handle your data: the eight-step sequence, the anonymisation table, commitments, incident response. |
 | `src/app/partners/page.tsx` | Referral partner programme with application form. |
 | `src/app/api/lead/route.ts` | Receives the buyer and partner forms and writes them to Supabase. |
-| `supabase/migrations/0001_leads.sql` | `leads` table for form submissions. |
+| `supabase/migrations/` | `leads` table for form submissions (0001), extended for estimate enquiries (0002). |
 | `src/components/` | Header, footer, logo, buttons, section headings, hero record-chain graphic. |
 | `src/app/globals.css` | Design tokens (colours, fonts) and the drawing-grid backgrounds. |
 
 ## Forms
 
-The buyer request (`/buyers#request`) and partner application (`/partners#apply`) forms post to `/api/lead`, which inserts into Supabase.
+The estimate enquiry (`/estimate`), buyer request (`/buyers#request`) and partner application (`/partners#apply`) forms post to `/api/lead`, which inserts into Supabase.
 
-1. Run `supabase/migrations/0001_leads.sql` against your project.
+1. Run both files in `supabase/migrations/` against your project, in order.
 2. Set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in the deployment environment (server-side only, never `NEXT_PUBLIC_`).
 
 Until those are set, the API returns 503 and the form offers to send the same details by email.
@@ -57,6 +57,8 @@ The copy makes commitments. Each one has to be true, and most must be in the Dat
 - [ ] Every buyer contract includes the five terms listed under "Every buyer agrees to".
 - [ ] Incident response steps on `/security` are in the agreement, including support for any ICO report.
 - [ ] Seller can leave on 30 days' notice.
+- [ ] Pricing model in `src/lib/estimate.ts`, then set `showsInstantEstimate = true`.
+- [ ] Someone owns the inbox promise on the estimate result screen: estimate emailed within one working day.
 - [ ] Partner fee split: the site says "we split our fee with you". Add the actual split to `/partners` once decided; a number converts better.
 - [ ] Buyer page formats (JSON/Parquet, XER/PP/XML, IFC) match what you can deliver.
 - [ ] Buyer page states UK copyright only allows text and data mining for non-commercial research (CDPA 1988 s29A). Check this is still current at launch; the government has consulted on changing it.
