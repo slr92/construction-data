@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-paper: #f5f3ee;
+  --color-card: #fffdf9;
+  --color-ink: #16181c;
+  --color-ink-soft: #2a2d33;
+  --color-muted: #5d6169;
+  --color-line: #dcd7cc;
+  --color-accent: #d9480f;
+  --color-accent-dark: #b33a0b;
+  --color-blueprint: #8fa3b8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Faint drawing-sheet grid used behind dark sections. */
+.grid-sheet {
+  background-image:
+    linear-gradient(to right, rgb(143 163 184 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(143 163 184 / 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.grid-sheet-light {
+  background-image:
+    linear-gradient(to right, rgb(22 24 28 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(22 24 28 / 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
