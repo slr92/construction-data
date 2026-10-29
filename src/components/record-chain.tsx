@@ -1,18 +1,18 @@
-// Hero illustration: one project's linked records, from bid to final cost.
+// Hero illustration: one project's linked records, from tender to final account.
 // Figures are illustrative, not from a real project.
 const steps = [
-  { tag: "EST", label: "Bid estimate", detail: "Mid-rise residential, 6 stories", value: "$18.42M" },
-  { tag: "RFI-212", label: "Field question", detail: "Structural vs. MEP clash at L4 transfer slab", value: "Answered in 6 days" },
-  { tag: "CO-031", label: "Change order", detail: "Reroute ductwork, add beam penetrations", value: "+$184,300 · +9 days" },
-  { tag: "FINAL", label: "Final cost", detail: "Closed out Q3 2023", value: "$19.06M · +3.5%" },
+  { tag: "TENDER", label: "Tender sum", detail: "Mid-rise residential, 6 storeys", value: "£14.62m" },
+  { tag: "RFI-212", label: "Site query", detail: "Structure vs. M&E clash at level 4 transfer slab", value: "Answered in 6 days" },
+  { tag: "VAR-031", label: "Variation", detail: "Reroute ductwork, add beam penetrations", value: "+£146,300 · +9 days EOT" },
+  { tag: "FINAL", label: "Final account", detail: "Agreed Q3 2023", value: "£15.13m · +3.5%" },
 ];
 
 export function RecordChain() {
   return (
     <div className="border border-line bg-card shadow-[0_1px_0_rgb(22_24_28/0.04),0_24px_48px_-24px_rgb(22_24_28/0.25)]">
       <div className="flex items-center justify-between border-b border-line px-5 py-3">
-        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Example: one job, bid to closeout</span>
-        <span className="font-mono text-[11px] text-muted">All figures USD</span>
+        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Example job</span>
+        <span className="font-mono text-[11px] text-muted">GBP</span>
       </div>
       <ol className="relative px-5 py-2">
         <span aria-hidden="true" className="absolute top-8 bottom-8 left-[33px] w-px bg-line" />
@@ -33,7 +33,7 @@ export function RecordChain() {
         ))}
       </ol>
       <div className="border-t border-line bg-paper/60 px-5 py-3 text-xs text-muted">
-        Buyers pay most when they can follow one job from bid to final cost.
+        Buyers pay most when they can follow one job from tender to final account.
       </div>
     </div>
   );

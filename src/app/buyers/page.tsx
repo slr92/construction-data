@@ -7,39 +7,39 @@ import { commitments } from "@/lib/site";
 export const metadata: Metadata = {
   title: "For AI labs",
   description:
-    "Licensed construction datasets from general and specialty contractors, linked at the project level, with per-record provenance.",
+    "Licensed UK construction datasets from main contractors and specialists, linked at the project level, with per-record provenance.",
 };
 
 const offering = [
   {
-    title: "Real field records, not synthetic",
-    body: "Data from contractors doing the work: how jobs were bid, scheduled, changed, inspected and closed out, including the mistakes.",
+    title: "Real site records, not synthetic",
+    body: "Data from UK contractors doing the work: how jobs were tendered, programmed, varied, inspected and handed over, including the mistakes.",
   },
   {
     title: "Linked at the project level",
-    body: "Estimates, schedules, RFIs, submittals, change orders, daily logs, site imagery and job cost from the same projects, joined by consistent IDs so you can follow a job from bid to closeout.",
+    body: "Tenders and BoQs, programmes, RFIs and technical queries, variations and compensation events, site diaries, site imagery, CVRs and final accounts from the same projects, joined by consistent IDs.",
   },
   {
-    title: "De-identified by default",
-    body: "People, clients, addresses, title blocks, professional stamps, photo location data and faces are removed with one documented method across every seller. Project facts that could pinpoint a building are banded.",
+    title: "Anonymised by default",
+    body: "People, clients, addresses, planning references, title blocks, photo location data and faces are removed with one documented method, following ICO anonymisation guidance. Project facts that could pinpoint a building are banded.",
   },
   {
-    title: "Clear provenance",
-    body: "Every source is licensed under a signed agreement with the contractor, and every record carries its source system and rights basis. Built to support training-data disclosure duties such as Article 53 of the EU AI Act.",
+    title: "A licence that covers training",
+    body: "UK copyright law only permits text and data mining for non-commercial research, so commercial training needs a licence. Every source is licensed under a signed agreement with the contractor, with its rights basis recorded per record.",
   },
   {
     title: "Packaged to spec",
-    body: "JSON or Parquet for structured records, original PDFs and images with redaction applied, schedules as XER or XML, and IFC models where the rights allow. Schemas and labeling matched to your training or eval pipeline.",
+    body: "JSON or Parquet for structured records, original PDFs and images with redaction applied, programmes as XER, PP or XML, and IFC models where the rights allow. Schemas and labelling matched to your training or eval pipeline.",
   },
   {
     title: "Ready for evals and environments",
-    body: "Linked outcomes make natural tasks: estimate a job and compare with final cost, draft an RFI response, forecast a schedule slip, price a change order.",
+    body: "Linked outcomes make natural tasks: price a BoQ and compare with the final account, answer a technical query, forecast a programme slip, assess a compensation event.",
   },
 ];
 
 const terms = [
-  { label: "Evaluation", body: "De-identified samples under NDA before you commit." },
-  { label: "Non-exclusive", body: "Standard license, lowest price, fastest to close." },
+  { label: "Evaluation", body: "Anonymised samples under NDA before you commit." },
+  { label: "Non-exclusive", body: "Standard licence, lowest price, fastest to close." },
   { label: "Exclusive", body: "Sole rights to a dataset for an agreed term or permanently." },
   { label: "Custom collection", body: "Tell us the trade, region or record type you need and we'll source it." },
 ];
@@ -47,7 +47,7 @@ const terms = [
 const fields: Field[] = [
   { name: "name", label: "Name", required: true },
   { name: "email", label: "Work email", type: "email", required: true },
-  { name: "organization", label: "Organization" },
+  { name: "organisation", label: "Organisation" },
   {
     name: "looking_for",
     label: "What are you looking for?",
@@ -64,11 +64,11 @@ export default function BuyersPage() {
         <div className="mx-auto max-w-6xl px-4 pt-16 pb-20 sm:px-6 lg:pt-24">
           <Eyebrow>For AI labs and model builders</Eyebrow>
           <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-            Construction records with a clean rights chain.
+            UK construction records with a clean rights chain.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-            Licensed datasets from general and specialty contractors, covering how real projects were estimated,
-            scheduled, changed and delivered. Every record is cleared for rights and de-identified before it reaches
+            Licensed datasets from UK main contractors and specialists, covering how real projects were tendered,
+            programmed, varied and delivered. Every record is cleared for rights and anonymised before it reaches
             you.
           </p>
           <div className="mt-9">
@@ -111,14 +111,14 @@ export default function BuyersPage() {
             inverted
             eyebrow="Request data"
             title="Tell us what you need."
-            intro={`We reply within ${commitments.replyBusinessDays === 1 ? "one business day" : `${commitments.replyBusinessDays} business days`} with available supply and a sample plan.`}
+            intro={`We reply within ${commitments.replyWorkingDays === 1 ? "one working day" : `${commitments.replyWorkingDays} working days`} with available supply and a sample plan.`}
           />
           <LeadForm
             inverted
             kind="buyer_request"
             fields={fields}
             submitLabel="Request data"
-            footnote="Samples are de-identified and covered by an NDA."
+            footnote="Samples are anonymised and covered by an NDA."
             success={{
               title: "Thanks. We'll be in touch.",
               body: "We'll review your request and reply with available supply and a sample plan.",

@@ -17,7 +17,7 @@ const steps = [
   },
   {
     title: "We check your contracts",
-    body: "We read your standard owner contracts, subcontracts and design agreements. Then we sort your records into yours to sell, needs permission, and stays put.",
+    body: "We read your standard client contracts, subcontracts and design appointments. Then we sort your records into yours to sell, needs permission, and stays put.",
     approval: false,
   },
   {
@@ -32,7 +32,7 @@ const steps = [
   },
   {
     title: "We connect, read-only",
-    body: "We connect to Procore, Autodesk or your accounting system, or you upload through an encrypted link. We can't change or delete anything, and our access ends with the deal.",
+    body: "We connect to Procore, COINS or your other systems, or you upload through an encrypted link. We can't change or delete anything, and our access ends with the deal.",
     approval: false,
   },
   {
@@ -42,7 +42,7 @@ const steps = [
   },
   {
     title: "You see what we removed",
-    body: `You get a summary of what came out and a sample of the finished data. You have ${commitments.objectionBusinessDays} business days to object, and nothing ships while you do.`,
+    body: `You get a summary of what came out and a sample of the finished data. You have ${commitments.objectionWorkingDays} working days to object, and nothing ships while you do.`,
     approval: true,
   },
   {
@@ -55,37 +55,37 @@ const steps = [
 const removals = [
   {
     what: "People",
-    examples: "Names, emails, phone numbers, signatures, faces and badges in photos, voices in video, license plates",
-    action: "Taken out, or swapped for labels like [SUPER_1] or [ELECTRICAL_SUB_2] so the record still makes sense",
+    examples: "Names, emails, phone numbers, signatures, CSCS card details, faces in photos, voices in video, number plates",
+    action: "Taken out, or swapped for labels like [SITE_MANAGER_1] or [M&E_SUB_2] so the record still makes sense",
   },
   {
     what: "The job",
-    examples: "Job and project names, owner and client names, addresses, parcel and permit numbers, photo GPS, site signs",
+    examples: "Job and scheme names, client names, addresses and postcodes, planning references, Land Registry title numbers, photo GPS, site hoardings",
     action: "Swapped for labels. Location becomes a region. Dates become a month or year.",
   },
   {
     what: "Details that point to a building",
-    examples: "Exact number of stories, square footage, contract value and finish date. Put together, a permit search can match these to a real building.",
-    action: "Put into ranges, like 8 to 12 stories or $20 to $50 million",
+    examples: "Exact number of storeys, floor area, contract value and completion date. Put together, a planning portal search can match these to a real building.",
+    action: "Put into ranges, like 8 to 12 storeys or £20 to £50 million",
   },
   {
     what: "Professional marks",
-    examples: "PE and architect stamps and seals, license numbers, title blocks, logos",
+    examples: "Title blocks, logos, ARB and chartership numbers, company registration numbers",
     action: "Taken out",
   },
   {
     what: "Personal and HR records",
-    examples: "Certified payroll, Social Security numbers, I-9s, injury and medical records, drug tests, background checks, bank details",
+    examples: "Payroll and CIS records, National Insurance numbers, right-to-work checks, DBS checks, injury and medical records, drug and alcohol tests, bank details",
     action: "Never included",
   },
   {
     what: "Sensitive buildings",
-    examples: "Layouts and systems for data centers, prisons, utilities, military and government buildings",
+    examples: "Prisons, data centres, defence, utilities and other critical infrastructure, anything marked Official-Sensitive or managed under ISO 19650-5, and fire strategies for higher-risk buildings",
     action: "Never included",
   },
   {
     what: "Other people's documents",
-    examples: "Architects' drawings and specs, suppliers' shop drawings, owners' confidential information, claim and dispute files",
+    examples: "Architects' and engineers' drawings and specs, specialist subcontractor design, clients' confidential information, adjudication and dispute files",
     action: "Left out unless the contract check clears them",
   },
   {
@@ -102,15 +102,15 @@ const checks = [
   },
   {
     title: "Software scan",
-    body: "We read the text in every scanned PDF and drawing, so nothing hides in an image. Image tools find faces, plates, badges, stamps and signs.",
+    body: "We read the text in every scanned PDF and drawing, so nothing hides in an image. Image tools find faces, plates, badges, logos and signs.",
   },
   {
     title: "Human check",
-    body: "Our team checks every dataset by hand. Daily logs, incident reports, photos and video get a bigger sample and a second reviewer.",
+    body: "Our team checks every dataset by hand. Site diaries, accident reports, photos and video get a bigger sample and a second reviewer.",
   },
   {
     title: "Try to identify it",
-    body: "Before release, someone tries to work out the job, company or people using the data plus permit records, news and street views. If they can, it goes back for another pass.",
+    body: "Before release, someone tries to work out the job, company or people using the data plus planning portals, Companies House, local news and Street View. If they can, it goes back for another pass.",
   },
   {
     title: "Keep a record",
@@ -121,9 +121,9 @@ const checks = [
 const neverDo = [
   "Give a buyer your original files. They only get the cleaned copy.",
   "Sell your records to anyone you didn't approve, or use them to train our own AI.",
-  "Sell to another contractor, an estimating service or a bid-data company.",
+  "Sell to another contractor, a cost consultant or a construction intelligence firm.",
   "Let a buyer use your records for anything outside the deal you signed.",
-  "Name you as a supplier, publicly or to a buyer, without your written OK.",
+  "Name you as a supplier, publicly or to a buyer, without your written agreement.",
 ];
 
 const buyersSign = [
@@ -139,21 +139,21 @@ const incident = [
   "Tell you in writing what was exposed, which buyers had it, and when.",
   "Send you each buyer's written confirmation that it's deleted, and our report on what went wrong and what we changed.",
   "Only send a cleaned replacement if you approve it.",
-  "Leave the decision about telling anyone else to you. We won't contact your clients, your people or a regulator, or name you, without your OK, unless the law requires it.",
+  "Give you what you need for any report to the ICO. We won't contact your clients, your staff or a regulator, or name you, without your agreement, unless the law requires it.",
 ];
 
 const yourRights = [
-  "You keep ownership. You license the records and never sell the rights.",
-  "Pull anything out before it's delivered, without canceling the agreement.",
+  "You keep ownership. You grant a licence and never sell the rights.",
+  "Pull anything out before it's delivered, without cancelling the agreement.",
   "Keep anything out: a job, a client, a folder, a field.",
   "See the money: a statement with every payment, and the buyer's payment records if you ask.",
   "Walk away with 30 days' notice.",
 ];
 
 const weAsk = [
-  "Only share what you have the right to. Owner contracts, AIA and ConsensusDocs forms and government contracts can all limit this. We'll go through them with you.",
-  "Tell us where the sensitive files are, like certified payroll, injury records or secure-site jobs, so we keep them out.",
-  "Point out other people's documents in your files, like architects' drawings or shop drawings.",
+  "Only share what you have the right to. JCT, NEC and bespoke client contracts, framework agreements and public sector contracts can all limit this. We'll go through them with you.",
+  "Tell us where the sensitive files are, like payroll, accident records or secure-site jobs, so we keep them out.",
+  "Point out other people's documents in your files, like architects' drawings or specialist design.",
   "Let us know if any of this changes.",
 ];
 
@@ -185,7 +185,7 @@ export default function SecurityPage() {
           </p>
           <p className="mt-4 max-w-2xl text-base text-muted">
             This is a plain-English summary of our Data Supply Agreement. Ask for the full version and have your
-            lawyer read it. If the two ever differ, the agreement wins.
+            solicitor read it. If the two ever differ, the agreement wins.
           </p>
         </div>
       </section>
@@ -223,7 +223,7 @@ export default function SecurityPage() {
           <SectionHeading
             eyebrow="What we take out"
             title="Construction records give away more than most."
-            intro="A daily log names your super. A title block names the architect. A site photo has GPS and faces in it. And a building can be identified from a few facts and a permit search. This is how we deal with each."
+            intro="A site diary names your site manager. A title block names the architect. A site photo has GPS and faces in it. And a building can be identified from a few facts and a planning search. This is how we deal with each."
           />
           <div className="mt-12 overflow-x-auto border border-line">
             <table className="w-full min-w-[720px] text-left">
@@ -256,12 +256,21 @@ export default function SecurityPage() {
             ))}
           </div>
 
-          <div className="mt-14 border-l-2 border-accent pl-5">
-            <p className="text-lg font-semibold">If we can&rsquo;t get it clean, we don&rsquo;t sell it.</p>
-            <p className="mt-2 max-w-2xl text-muted">
-              If a dataset can&rsquo;t meet this standard, none of it goes out. We tell you, then delete or return
-              your records.
-            </p>
+          <div className="mt-14 grid gap-8 md:grid-cols-2">
+            <div className="border-l-2 border-accent pl-5">
+              <p className="text-lg font-semibold">If we can&rsquo;t get it clean, we don&rsquo;t sell it.</p>
+              <p className="mt-2 text-muted">
+                If a dataset can&rsquo;t meet this standard, none of it goes out. We tell you, then delete or return
+                your records.
+              </p>
+            </div>
+            <div className="border-l-2 border-ink pl-5">
+              <p className="text-lg font-semibold">Anonymised to the ICO&rsquo;s standard.</p>
+              <p className="mt-2 text-muted">
+                We follow the ICO&rsquo;s anonymisation guidance and keep no key that links labels back to real
+                people. Properly anonymised data is no longer personal data under UK GDPR.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -329,7 +338,7 @@ export default function SecurityPage() {
               Start by telling us what you have. That&rsquo;s it.
             </h2>
             <p className="mt-3 text-lg text-paper/65">
-              Questions, or want the agreement for your lawyer? Email {site.email}
+              Questions, or want the agreement for your solicitor? Email {site.email}
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">

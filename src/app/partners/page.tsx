@@ -5,24 +5,24 @@ import { Eyebrow, SectionHeading } from "@/components/section";
 export const metadata: Metadata = {
   title: "Partners",
   description:
-    "Accountants, surety brokers, software consultants and advisors: introduce contractors with years of job records and share in every deal.",
+    "Accountants, brokers, software consultants and advisers: introduce UK contractors with years of job records and share in every deal.",
 };
 
 const who = [
   {
-    title: "Construction CPAs and controllers",
-    body: "You know which clients have ten years of clean job cost in Sage or Viewpoint, and the owner listens to you.",
+    title: "Construction accountants and FDs",
+    body: "You know which clients have ten years of clean cost data in COINS or Sage, and the MD listens to you.",
   },
   {
-    title: "Surety and insurance brokers",
-    body: "You see their financials and job history at every renewal. They already trust you with sensitive information.",
+    title: "Insurance and surety brokers",
+    body: "You see their accounts and job history at every renewal. They already trust you with sensitive information.",
   },
   {
-    title: "Procore and ERP consultants",
-    body: "You set up the systems the records live in. You know which ones are complete and well organized.",
+    title: "Software consultants",
+    body: "You set up the Procore, COINS or Asite systems the records live in. You know which ones are complete and well organised.",
   },
   {
-    title: "M&A advisors and associations",
+    title: "Corporate finance advisers and trade bodies",
     body: "Owners getting ready to sell or retire want to know what everything's worth. Most have never priced their job archive.",
   },
 ];
@@ -52,11 +52,11 @@ const fields: Field[] = [
     type: "select",
     required: true,
     options: [
-      "Construction CPA or accountant",
-      "Surety or insurance broker",
-      "Software or ERP consultant",
-      "M&A or business advisor",
-      "Industry association",
+      "Construction accountant or FD",
+      "Insurance or surety broker",
+      "Software consultant",
+      "Corporate finance or business adviser",
+      "Trade body",
       "Other",
     ],
   },
@@ -86,7 +86,7 @@ export default function PartnersPage() {
             Your clients have years of job files. Most don&rsquo;t know they&rsquo;re worth anything.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-            They won&rsquo;t believe it from a stranger. They will from their accountant, their surety broker or the
+            They won&rsquo;t believe it from a stranger. They will from their accountant, their insurance broker or the
             person who set up their systems.
           </p>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">

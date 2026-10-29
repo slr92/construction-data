@@ -4,45 +4,45 @@ import { Eyebrow, SectionHeading } from "@/components/section";
 import { site } from "@/lib/site";
 
 const systemGroups = [
-  { title: "Project management", tools: "Procore, Autodesk Construction Cloud, Fieldwire, Trimble Viewpoint Team" },
-  { title: "Accounting and job cost", tools: "Sage 300 CRE, Sage Intacct, Vista, Spectrum, Foundation, CMiC" },
-  { title: "Estimating", tools: "HCSS HeavyBid, Sage Estimating, ProEst, Accubid, Excel" },
-  { title: "Scheduling", tools: "Primavera P6, Microsoft Project" },
-  { title: "Field and safety", tools: "HCSS HeavyJob, Raken, SafetyCulture" },
+  { title: "Project management", tools: "Procore, Autodesk Construction Cloud, Asite, Viewpoint 4Projects, Aconex" },
+  { title: "Accounts and cost", tools: "COINS, Sage 200, Eque2, Causeway, Xero" },
+  { title: "Estimating", tools: "CostX, Causeway Estimating, Bluebeam, Excel" },
+  { title: "Programmes", tools: "Asta Powerproject, Primavera P6, Microsoft Project" },
+  { title: "Site and safety", tools: "Viewpoint Field View, HammerTech, SafetyCulture" },
   { title: "Files and photos", tools: "SharePoint, Egnyte, Box, your server, scanned PDFs" },
 ];
 
 const records = [
   {
-    title: "Estimates and bids",
-    body: "Takeoffs, unit costs, bid/no-bid calls, and how your number compared with the final cost.",
+    title: "Tenders and estimates",
+    body: "Bills of quantities, rates, bid/no-bid decisions, and how your tender compared with the final account.",
   },
   {
-    title: "Schedules",
-    body: "Baselines and updates, with what slipped and why.",
+    title: "Programmes",
+    body: "Baselines and updates, with what slipped, why, and any extensions of time.",
   },
   {
-    title: "RFIs, submittals and change orders",
-    body: "What came up in the field, how it got resolved, and what it cost in time and money.",
+    title: "RFIs, technical queries and variations",
+    body: "What came up on site, how it got resolved, and what it cost in time and money.",
   },
   {
-    title: "Daily logs and site photos",
-    body: "Crews, weather, deliveries, progress and problems, day by day.",
+    title: "Site diaries and photos",
+    body: "Labour on site, weather, deliveries, progress and problems, day by day.",
   },
   {
-    title: "Safety and quality",
-    body: "Inspections, incidents and what caused them, punch lists, closeout.",
+    title: "Health, safety and quality",
+    body: "Inspections, incidents and what caused them, snagging, handover.",
   },
   {
-    title: "Job cost",
-    body: "Cost codes, committed vs. actual, pay apps and retainage.",
+    title: "Cost and valuations",
+    body: "Cost reports, CVRs, interim valuations, retention and final accounts.",
   },
 ];
 
 const valueDrivers = [
   {
     title: "Jobs you can follow start to finish",
-    body: "An estimate on its own isn't worth much. The same estimate tied to that job's RFIs, change orders and final cost is worth a lot more.",
+    body: "A tender on its own isn't worth much. The same tender tied to that job's RFIs, variations and final account is worth a lot more.",
   },
   {
     title: "Years of history",
@@ -50,11 +50,11 @@ const valueDrivers = [
   },
   {
     title: "Specialist work",
-    body: "Healthcare, data centers, heavy civil and MEP are hard for buyers to find, so they pay more for them.",
+    body: "Healthcare, data centres, civils and M&E are hard for buyers to find, so they pay more for them.",
   },
   {
-    title: "Organized records",
-    body: "Clean data in Procore or Sage with consistent cost codes is quicker to prepare than boxes of scanned PDFs. That shows up in the price.",
+    title: "Organised records",
+    body: "Clean data in COINS or Procore with consistent cost codes is quicker to prepare than boxes of scanned PDFs. That shows up in the price.",
   },
 ];
 
@@ -62,17 +62,17 @@ const rightsGroups = [
   {
     label: "Yours to sell",
     tone: "text-emerald-400",
-    body: "Estimates, schedules, daily logs, job cost, your own photos, and your side of the RFIs and change orders.",
+    body: "Tenders, programmes, site diaries, cost reports, your own photos, and your side of the RFIs and variations.",
   },
   {
     label: "Needs permission",
     tone: "text-amber-300",
-    body: "Anything covered by an owner's confidentiality clause, or with someone else's documents in it. We'll help you ask.",
+    body: "Anything covered by a client's confidentiality clause, or with someone else's documents in it. We'll help you ask.",
   },
   {
     label: "Stays put",
     tone: "text-red-400",
-    body: "Architects' drawings and specs, government work with security rules, and sensitive buildings like data centers and prisons. These never leave.",
+    body: "Architects' drawings and specs, security-sensitive work, and buildings like data centres, prisons and critical infrastructure. These never leave.",
   },
 ];
 
@@ -83,7 +83,7 @@ const steps = [
   },
   {
     title: "We check your contracts",
-    body: "Send us your standard owner contracts and subcontracts. We'll tell you what you're allowed to sell before anything else happens.",
+    body: "Send us your standard client contracts and subcontracts. We'll tell you what you're allowed to sell before anything else happens.",
   },
   {
     title: "We find a buyer",
@@ -91,7 +91,7 @@ const steps = [
   },
   {
     title: "We do the prep",
-    body: "We pull only the records in the deal and strip out names, clients, addresses, stamps and faces. You see what we took out before anything goes.",
+    body: "We pull only the records in the deal and strip out names, clients, addresses, logos and faces. You see what we took out before anything goes.",
   },
   {
     title: "You get paid",
@@ -106,7 +106,7 @@ const safeguards = [
   },
   {
     title: "Read-only access",
-    body: "We can't change or delete anything in Procore, your accounting system or your server. Access ends when the deal does.",
+    body: "We can't change or delete anything in COINS, Procore or your server. Access ends when the deal does.",
   },
   {
     title: "Checked by people",
@@ -114,22 +114,22 @@ const safeguards = [
   },
   {
     title: "Never to competitors",
-    body: "We don't sell to other contractors or bid-data companies. Buyers only learn your name if you want them to.",
+    body: "We don't sell to other contractors or construction intelligence firms. Buyers only learn your name if you want them to.",
   },
 ];
 
 const faqs = [
   {
     q: "Will my clients or competitors find out?",
-    a: "No. We strip out client names, addresses, people and job names, and blur details that could point to a specific building. Listings describe you in general terms, like \"Midwest commercial GC, $200 million a year\", and you approve the wording.",
+    a: "No. We strip out client names, addresses, people and job names, and blur details that could point to a specific building. Listings describe you in general terms, like \"Midlands main contractor, £150 million turnover\", and you approve the wording.",
   },
   {
     q: "Will the buyer know it's us?",
-    a: "Only if you say so. Otherwise they never learn who supplied it, and we never name you publicly without your written OK.",
+    a: "Only if you say so. Otherwise they never learn who supplied it, and we never name you publicly without your written agreement.",
   },
   {
-    q: "What about my employees?",
-    a: "Names, phone numbers, emails, signatures and faces come out before anything is shared. We don't touch payroll or HR files.",
+    q: "What about my staff and UK GDPR?",
+    a: "Names, phone numbers, emails, signatures and faces come out before anything is shared, and we anonymise to the ICO's standard. We don't touch payroll, CIS or HR files.",
   },
   {
     q: "How much of my team's time will this take?",
@@ -137,7 +137,7 @@ const faqs = [
   },
   {
     q: "Are we big enough?",
-    a: "If you have several years of finished jobs in a project management or accounting system, probably. Years of history matter more than headcount.",
+    a: "If you have several years of finished jobs in a project management or accounts system, probably. Years of history matter more than headcount.",
   },
   {
     q: "How long does it take?",
@@ -149,14 +149,14 @@ const faqs = [
   },
   {
     q: "Do we still own the records?",
-    a: "Yes. You're licensing them, not selling them outright. If a deal isn't exclusive, you can license the same records again. Exclusive deals pay more because you can't.",
+    a: "Yes. You're granting a licence, not selling them outright. If a deal isn't exclusive, you can license the same records again. Exclusive deals pay more because you can't.",
   },
   {
     q: "Who's buying?",
-    a: "AI companies building tools that estimate, schedule and manage construction work. Never other contractors or bid-data firms, and you approve every buyer by name.",
+    a: "AI companies building tools that estimate, programme and manage construction work. Never other contractors or construction intelligence firms, and you approve every buyer by name.",
   },
   {
-    q: "Can my lawyer see the agreement?",
+    q: "Can my solicitor see the agreement?",
     a: "Yes, and we'd encourage it. Ask us for a copy. Nothing happens until it's signed and you've approved a specific deal.",
   },
 ];
@@ -173,8 +173,9 @@ export default function Home() {
               Get paid for the job records you already have.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-              AI companies are paying contractors for their old project records: estimates, schedules, RFIs, change
-              orders, daily logs. We handle the whole thing. You answer some questions, approve the deal and get paid.
+              AI companies are paying UK contractors for their old project records: tenders, programmes, RFIs,
+              variations, site diaries. We handle the whole thing. You answer some questions, approve the deal and get
+              paid.
             </p>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
               Nothing leaves your systems until you&rsquo;ve signed off on a buyer and a price.
@@ -195,17 +196,17 @@ export default function Home() {
       <section className="border-b border-line">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16">
           <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-            AI can read a spec book. It has no idea how a job actually runs.
+            AI can read the Building Regulations. It has no idea how a job actually runs.
           </h2>
           <div className="space-y-5 text-lg leading-relaxed text-muted">
             <p>
-              The internet is full of building codes, textbooks and product data, and AI has already read all of it.
-              What it&rsquo;s never seen is a real job: the estimate that came in light, the RFI that held up the
-              steel, the change order that fixed it and what it cost.
+              The internet is full of regulations, guidance, textbooks and product data, and AI has already read all
+              of it. What it&rsquo;s never seen is a real job: the tender that came in light, the
+              RFI that held up the steel, the variation that fixed it and what it cost.
             </p>
             <p>
-              That&rsquo;s what AI companies are short of. It&rsquo;s sitting in your Procore account and your
-              accounting system, and they&rsquo;ll pay for it.
+              That&rsquo;s what AI companies are short of. It&rsquo;s sitting in your project system and your
+              accounts, and they&rsquo;ll pay for it.
             </p>
           </div>
         </div>
@@ -277,7 +278,7 @@ export default function Home() {
             inverted
             eyebrow="Rights first"
             title="Some of what's on your server isn't yours to sell."
-            intro="The AIA contracts most contractors sign say the drawings and specs belong to the architect. Owner contracts often have confidentiality clauses. Shop drawings can belong to the supplier."
+            intro="Under most architects' appointments, copyright in the drawings and specs stays with the architect. Your JCT, NEC or bespoke contract may add confidentiality clauses. Specialist design can belong to the subcontractor or supplier."
           />
           <p className="mt-6 max-w-2xl text-lg text-paper/80">
             If a broker skips this, you carry the risk. We check first and sort everything into three piles.
@@ -291,7 +292,7 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-6 text-base text-paper/55">
-            We&rsquo;re not your lawyer. If something needs one, we&rsquo;ll tell you.
+            We&rsquo;re not your solicitor. If something needs one, we&rsquo;ll tell you.
           </p>
         </div>
       </section>
@@ -364,8 +365,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <h2 className="text-xl font-semibold">Know a contractor with years of job files?</h2>
             <p className="mt-2 text-muted">
-              Accountants, surety brokers and software consultants can introduce their clients and share in every
-              deal.
+              Accountants, brokers and software consultants can introduce their clients and share in every deal.
             </p>
           </div>
           <ButtonLink href="/partners" variant="secondary">

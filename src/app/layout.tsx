@@ -18,12 +18,13 @@ export const metadata: Metadata = {
     title: `${site.name} | ${site.tagline}`,
     description: site.description,
     type: "website",
+    locale: "en_GB",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <body className="font-sans">
         <SiteHeader />
         <main>{children}</main>
