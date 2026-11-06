@@ -170,7 +170,7 @@ export default function Home() {
           <div>
             <Eyebrow>{site.tagline}</Eyebrow>
             <h1 className="mt-5 text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-[3.4rem] lg:leading-[1.05]">
-              Get paid for the job records you already have.
+              Get paid for data you already have.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
               AI companies are paying UK contractors for their old project records: tenders, programmes, RFIs,
